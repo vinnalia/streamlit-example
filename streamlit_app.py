@@ -15,7 +15,8 @@ import re
 
 st.write("halo ini vinna")
 
-model = pickle.load(open("model_pkl", 'rb'))
+with open("model_pkl", 'rb') as file:
+    model = pickle.load(file)
 
 cv = CountVectorizer(max_features=1500)
 
@@ -31,7 +32,7 @@ def predict_review(sample_message):
     final_message = [ps.stem(word) for word in sample_message_words]
     final_message = ' '.join(final_message)
     temp = cv.transform([final_message]).toarray()
-    return model.predict(temp)
+    return classifier.predict(temp)
 
 
 input_review = st.text_area(label="Masukkan review (dalam bahasa Inggris):",
