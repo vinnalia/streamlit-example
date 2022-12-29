@@ -54,6 +54,11 @@ input_review = st.text_area(label="Masukkan review (dalam bahasa Inggris):",
                             placeholder="Contoh: I like this course...")
 analisis_button = st.button(label="Analisis")
 
+result = ['OH NO! Negative Review','OMG! Positive Review']
+
 if analisis_button:
     hasil_analisis = predict_review(input_review)
-    st.write("Hasil Analisis : " + hasil_analisis)
+    if predict_review(input_review):
+        st.write("Hasil Analisis " + result[1])
+    else:
+        st.write("Hasil Analisis " + result[0])
