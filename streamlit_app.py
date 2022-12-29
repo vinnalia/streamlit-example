@@ -13,6 +13,8 @@ import re
 ## Kelompok 2
 """
 
+st.write("halo ini vinna")
+
 model = pickle.load(open("model_pkl", 'rb'))
 
 cv = CountVectorizer(max_features=1500)
