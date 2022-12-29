@@ -12,10 +12,8 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 """
-## Kelompok 2
+## Kelompok 2 : REVIEW RESTAURANT ANALISIS SENTIMEN
 """
-
-st.write("halo ini vinna")
 
 with open("model_pkl", 'rb') as file:
     model = pickle.load(file)
@@ -50,15 +48,15 @@ def predict_review(sample_message):
     return model.predict(temp)
 
 
-input_review = st.text_area(label="Masukkan review (dalam bahasa Inggris):",
-                            placeholder="Contoh: I like this course...")
-analisis_button = st.button(label="Analisis")
+input_review = st.text_area(label="Write what your review:",
+                            placeholder="The food is really good here...")
+analisis_button = st.button(label="Analyze")
 
 result = ['OH NO! Negative Review','OMG! Positive Review']
 
 if analisis_button:
     hasil_analisis = predict_review(input_review)
     if predict_review(input_review):
-        st.write("Hasil Analisis " + result[1])
+        st.write("Prediction Result: " + result[1])
     else:
-        st.write("Hasil Analisis " + result[0])
+        st.write("Prediction Result: " + result[0])
