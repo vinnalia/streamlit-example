@@ -48,7 +48,7 @@ def predict_review(sample_message):
     return model.predict(temp)
 
 
-input_review = st.text_area(label="Write what your review:",
+input_review = st.text_area(label="Write your review:",
                             placeholder="The food is really good here...")
 analisis_button = st.button(label="Analyze")
 
