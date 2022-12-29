@@ -36,10 +36,6 @@ input_review = st.text_area(label="Masukkan review (dalam bahasa Inggris):",
                             placeholder="Contoh: I like this course...")
 analisis_button = st.button(label="Analisis")
 
-if analisis_button:
-    hasil_analisis = predict_review(input_review)
-    # if hasil_analisis == "liked course":
-    #     sentimen = "Suka"
-    # else:
-    #     sentimen = "Tidak Suka"
-    st.write("Hasil Analisis : " + hasil_analisis)
+# if analisis_button:
+#     hasil_analisis = predict_review(input_review)
+#     st.write("Hasil Analisis : " + hasil_analisis)
