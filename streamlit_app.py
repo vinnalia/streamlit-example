@@ -33,7 +33,7 @@ for i in range(0,df.shape[0]):
     words = [ps.stem(word) for word in words] #Stemming the words
     message = ' '.join(words) #Joining the stemmed words
     corpus.append(message) #Building a corpus of messages
-corpus[0:10]
+# corpus[0:10]
 X = cv.fit_transform(corpus).toarray()
 
 def predict_review(sample_message):
