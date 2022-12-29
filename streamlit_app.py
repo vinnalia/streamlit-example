@@ -21,7 +21,20 @@ with open("model_pkl", 'rb') as file:
     model = pickle.load(file)
 
 cv = CountVectorizer(max_features=1500)
+corpus = []
+ps = PorterStemmer()
 
+df = pd.read_csv('Restaurant_Reviews.tsv', delimiter='\t', quoting=3)
+for i in range(0,df.shape[0]):
+    message = re.sub(pattern='[^a-zA-Z]', repl=' ', string=df.Review[i]) #Cleaning special character from the message
+    message = message.lower() #Converting the entire message into lower case
+    words = message.split() # Tokenizing the review by words
+    words = [word for word in words if word not in set(stopwords.words('english'))] #Removing the stop words
+    words = [ps.stem(word) for word in words] #Stemming the words
+    message = ' '.join(words) #Joining the stemmed words
+    corpus.append(message) #Building a corpus of messages
+corpus[0:10]
+X = cv.fit_transform(corpus).toarray()
 
 def predict_review(sample_message):
     sample_message = re.sub(
