@@ -1,13 +1,15 @@
+import re
+from nltk.stem.porter import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
 from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
 import streamlit as st
 import pickle
-from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import CountVectorizer
-from nltk.stem.porter import PorterStemmer
-import re
+import nltk
+nltk.download('stopwords')
 
 """
 ## Kelompok 2
@@ -32,7 +34,7 @@ def predict_review(sample_message):
     final_message = [ps.stem(word) for word in sample_message_words]
     final_message = ' '.join(final_message)
     temp = cv.transform([final_message]).toarray()
-    return classifier.predict(temp)
+    return model.predict(temp)
 
 
 input_review = st.text_area(label="Masukkan review (dalam bahasa Inggris):",
