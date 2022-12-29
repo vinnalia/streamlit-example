@@ -1,15 +1,15 @@
+import nltk
 import re
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
-from nltk.corpus import stopwords
 from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
 import streamlit as st
 import pickle
-import nltk
 nltk.download('stopwords')
+from nltk.corpus import stopwords
 
 """
 ## Kelompok 2
